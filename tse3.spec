@@ -14,7 +14,7 @@ Group:		Applications/Sound
 Source0:	http://dl.sourceforge.net/sourceforge/%{name}/%{name}-%{version}.tar.gz
 # Source0-md5:	6ccab942cc51a648af76653771479eed
 URL:		http://tse3.sourceforge.net/
-%{!?_without_alsa:BuildRequires:       alsa-lib-devel}
+%{!?_without_alsa:BuildRequires:	alsa-lib-devel}
 %{?_with_arts:BuildRequires:	arts-devel}
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -62,10 +62,9 @@ rm -f missing
 %{__autoconf}
 %configure \
 	%{?_with_arts:--with-aRts} \
-        %{?_without_alsa:--without-alsa} \
-        %{?_with_oss:--with-oss} \
-        --without-win32
-
+	%{?_without_alsa:--without-alsa} \
+	%{?_with_oss:--with-oss} \
+	--without-win32
 %{__make}
 
 %install
