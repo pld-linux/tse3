@@ -14,6 +14,7 @@ Group:		Applications/Sound
 Source0:	http://dl.sourceforge.net/tse3/%{name}-%{version}.tar.gz
 # Source0-md5:	6ccab942cc51a648af76653771479eed
 Patch0:		%{name}-alsa1_0.patch
+Patch1:		%{name}-types.patch
 URL:		http://tse3.sourceforge.net/
 %{?with_alsa:BuildRequires:	alsa-lib-devel >= 1.0}
 %{?with_arts:BuildRequires:	arts-devel}
@@ -43,7 +44,7 @@ dostarczyæ u¿ytkownikowi mo¿liwo¶ci sekwencera MIDI.
 Summary:	Tse3 header files
 Summary(pl):	Pliki nag³ówkowe tse3
 Group:		Development/Libraries
-Requires:	%{name} = %{version}
+Requires:	%{name} = %{version}-%{release}
 %{?with_alsa:Requires:	alsa-lib-devel >= 1.0}
 %{?with_arts:Requires:	arts-devel}
 Requires:	libstdc++-devel
@@ -57,6 +58,7 @@ Pliki nag³ówkowe tse3.
 %prep
 %setup -q
 %patch0 -p1
+%patch1 -p1
 
 %build
 %{__libtoolize}
