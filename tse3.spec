@@ -47,8 +47,6 @@ rm -rf $RPM_BUILD_ROOT
 
 %{__make} install DESTDIR=$RPM_BUILD_ROOT
 
-gzip -9nf AUTHORS README* ChangeLog* NEWS
-
 rm -f doc/Makefile*
 
 %post   -p /sbin/ldconfig
@@ -59,7 +57,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc doc/*
+%doc doc/* AUTHORS README* ChangeLog* NEWS
 %attr(755,root,root) %{_bindir}/*
 %attr(755,root,root) %{_libdir}/lib*.so.*.*.*
 %{_mandir}/man1/*
