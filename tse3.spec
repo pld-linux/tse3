@@ -39,7 +39,7 @@ Pliki nag³ówkowe tse3.
 %setup -q
 
 %build
-CXXFLAGS="%{!?debug:$RPM_OPT_FLAGS}%{?debug:-O -g} -fno-rtti"
+CXXFLAGS="%{?debug:-O -g}%{!?debug:$RPM_OPT_FLAGS} -fno-rtti"
 %configure
 %{__make}
 
