@@ -6,6 +6,7 @@ Release:	1
 License:	GPL
 Group:		Applications/Sound
 Source0:	http://download.sourceforge.net/TSE3/%{name}-%{version}.tar.gz
+# Source0-md5:	6e7ae774266aba53ba013e78e4190c23
 URL:		http://download.sourceforge.net/TSE3/
 BuildRequires:	libstdc++-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
