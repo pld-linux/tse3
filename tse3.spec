@@ -5,7 +5,7 @@
 # _without_alsa		- without ALSA support
 #
 Summary:	Trax Sequencer Engine
-Summary(pl):	Trax Sekwencer
+Summary(pl):	Silnik sekwencera Trax
 Name:		tse3
 Version:	0.2.7
 Release:	0.1
@@ -16,7 +16,10 @@ Source0:	http://dl.sourceforge.net/sourceforge/%{name}/%{name}-%{version}.tar.gz
 URL:		http://tse3.sourceforge.net/
 %{!?_without_alsa:BuildRequires:       alsa-lib-devel}
 %{?_with_arts:BuildRequires:	arts-devel}
+BuildRequires:	autoconf
+BuildRequires:	automake
 BuildRequires:	libstdc++-devel
+BuildRequires:	libtool
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -28,8 +31,12 @@ incorporate the TSE3 libraries to provide a user with MIDI sequencing
 facilities.
 
 %description -l pl
-TSE3 jest potê¿nym enginem sekwencera napisanym w C++ z
-wolnodostêpnymi ¼ród³ami.
+TSE3 jest potê¿nym silnikiem sekwencera napisanym w C++ z
+wolnodostêpnymi ¼ród³ami. Jest to "silnik sekwencera", poniewa¿
+dostarcza w³a¶ciwe elementy "napêdzaj±ce" sekwencer, ale nie
+zawiera ¿adnego ³adnego interfejsu. Aplikacje sekwencera lub
+prezentacji multimedialnych mog± korzystaæ z bibliotek TSE3, aby
+dostarczyæ u¿ytkownikowi mo¿liwo¶ci sekwencera MIDI.
 
 %package devel
 Summary:	Tse3 header files
@@ -70,11 +77,11 @@ install -d $RPM_BUILD_ROOT%{_datadir}/%{name}/songs
 cp demos/*.tse3 $RPM_BUILD_ROOT%{_datadir}/%{name}/songs
 rm -f doc/Makefile*
 
-%post   -p /sbin/ldconfig
-%postun -p /sbin/ldconfig
-
 %clean
 rm -rf $RPM_BUILD_ROOT
+
+%post   -p /sbin/ldconfig
+%postun -p /sbin/ldconfig
 
 %files
 %defattr(644,root,root,755)
@@ -82,12 +89,11 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/*
 %attr(755,root,root) %{_libdir}/lib*.so.*.*.*
 %dir %{_datadir}/%{name}
-%{_datadir}/%{name}/songs/*
+%{_datadir}/%{name}/songs
 %{_mandir}/man1/*
 
 %files devel
 %defattr(644,root,root,755)
-
 %attr(755,root,root) %{_libdir}/lib*.so
 %{_libdir}/lib*.la
 %{_includedir}/*
