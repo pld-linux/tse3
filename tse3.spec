@@ -5,8 +5,6 @@ Version:	0.0.17
 Release:	2
 License:	GPL
 Group:		Applications/Sound
-Group(de):	Applikationen/Laut
-Group(pl):	Aplikacje/D¼wiêk
 Source0:	http://download.sourceforge.net/TSE3/%{name}-%{version}.tar.gz
 URL:		http://download.sourceforge.net/TSE3/
 BuildRequires:	libstdc++-devel
@@ -28,13 +26,6 @@ wolnodostêpnymi ¼ród³ami.
 Summary:	Tse3 header files
 Summary(pl):	Pliki nag³ówkowe tse3
 Group:		Development/Libraries
-Group(de):	Entwicklung/Libraries
-Group(es):	Desarrollo/Bibliotecas
-Group(fr):	Development/Librairies
-Group(pl):	Programowanie/Biblioteki
-Group(pt_BR):	Desenvolvimento/Bibliotecas
-Group(ru):	òÁÚÒÁÂÏÔËÁ/âÉÂÌÉÏÔÅËÉ
-Group(uk):	òÏÚÒÏÂËÁ/â¦ÂÌ¦ÏÔÅËÉ
 Requires:	%{name} = %{version}
 
 %description devel
