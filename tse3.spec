@@ -1,8 +1,8 @@
 #
 # Conditional build:
-# _with_arts		- with arts library
-# _with_oss		- with OSS kernel sound drivers
-# _without_alsa		- without ALSA support
+%bcond_with	arts	# with aRts support
+%bcond_without	oss	# without OSS drivers support
+%bcond_without	alsa	# without ALSA support
 #
 Summary:	Trax Sequencer Engine
 Summary(pl):	Silnik sekwencera Trax
@@ -11,11 +11,11 @@ Version:	0.2.7
 Release:	0.1
 License:	GPL
 Group:		Applications/Sound
-Source0:	http://dl.sourceforge.net/sourceforge/%{name}/%{name}-%{version}.tar.gz
+Source0:	http://dl.sourceforge.net/tse3/%{name}-%{version}.tar.gz
 # Source0-md5:	6ccab942cc51a648af76653771479eed
 URL:		http://tse3.sourceforge.net/
-%{!?_without_alsa:BuildRequires:	alsa-lib-devel}
-%{?_with_arts:BuildRequires:	arts-devel}
+%{?with_alsa:BuildRequires:	alsa-lib-devel}
+%{?with_arts:BuildRequires:	arts-devel}
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	libstdc++-devel
@@ -43,6 +43,9 @@ Summary:	Tse3 header files
 Summary(pl):	Pliki nag³ówkowe tse3
 Group:		Development/Libraries
 Requires:	%{name} = %{version}
+%{?with_alsa:Requires:	alsa-lib-devel}
+%{?with_arts:Requires:	arts-devel}
+Requires:	libstdc++-devel
 
 %description devel
 Tse3 header files.
@@ -54,16 +57,15 @@ Pliki nag³ówkowe tse3.
 %setup -q
 
 %build
-rm -f missing
 %{__libtoolize}
 %{__aclocal}
+%{__autoconf}
 %{__autoheader}
 %{__automake}
-%{__autoconf}
 %configure \
-	%{?_with_arts:--with-aRts} \
-	%{?_without_alsa:--without-alsa} \
-	%{?_with_oss:--with-oss} \
+	%{!?with_arts:--without-aRts} \
+	%{!?with_alsa:--without-alsa} \
+	%{!?with_oss:--without-oss} \
 	--without-win32
 %{__make}
 
@@ -71,7 +73,8 @@ rm -f missing
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{_datadir}/%{name}/songs
 
-%{__make} install DESTDIR=$RPM_BUILD_ROOT
+%{__make} install \
+	DESTDIR=$RPM_BUILD_ROOT
 
 cp demos/*.tse3 $RPM_BUILD_ROOT%{_datadir}/%{name}/songs
 rm -f doc/Makefile*
