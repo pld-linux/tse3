@@ -11,7 +11,7 @@ Version:	0.2.7
 Release:	0.1
 License:	GPL
 Group:		Applications/Sound
-Source0:	http://heanet.dl.sourceforge.net/sourceforge/%{name}/%{name}-%{version}.tar.gz
+Source0:	http://dl.sourceforge.net/sourceforge/%{name}/%{name}-%{version}.tar.gz
 # Source0-md5:	6ccab942cc51a648af76653771479eed
 URL:		http://tse3.sourceforge.net/
 %{!?_without_alsa:BuildRequires:       alsa-lib-devel}
