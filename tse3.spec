@@ -1,8 +1,8 @@
 Summary:	Trax Sequencer Engine
-Summary(pl):	Trax Sequencer Engine
+Summary(pl):	Trax Sequencer
 Name:		tse3
 Version:	0.0.17
-Release:	1
+Release:	2
 License:	GPL
 Group:		Applications/Sound
 Group(de):	Applikationen/Laut
@@ -40,7 +40,7 @@ Pliki nag³ówkowe tse3.
 
 %build
 CXXFLAGS="%{rpmcflags} -fno-rtti"
-%configure
+%configure2_13
 %{__make}
 
 %install
