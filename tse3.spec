@@ -1,7 +1,7 @@
 Summary:	Trax Sequencer Engine
 Summary(pl):	Trax Sequencer Engine
 Name:		tse3
-Version:	0.0.14
+Version:	0.0.17
 Release:	1
 License:	GPL
 Group:		Applications/Sound
