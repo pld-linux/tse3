@@ -1,5 +1,5 @@
 Summary:	Trax Sequencer Engine
-Summary(pl):	Trax Sequencer
+Summary(pl):	Trax Sekwencer
 Name:		tse3
 Version:	0.0.17
 Release:	2
@@ -20,6 +20,10 @@ Sequencer applications or multimedia presentation packages will
 incorporate the TSE3 libraries to provide a user with MIDI sequencing
 facilities.
 
+%description -l pl
+TSE3 jest potê¿nym enginem sekwencera napisanym w C++ z
+wolnodostêpnymi ¼ród³ami.
+
 %package devel
 Summary:	Tse3 header files
 Summary(pl):	Pliki nag³ówkowe tse3
@@ -36,7 +40,7 @@ Requires:	%{name} = %{version}
 %description devel
 Tse3 header files.
 
-%description -l pl devel
+%description devel -l pl
 Pliki nag³ówkowe tse3.
 
 %prep
