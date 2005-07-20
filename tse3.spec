@@ -7,12 +7,12 @@
 Summary:	Trax Sequencer Engine
 Summary(pl):	Silnik sekwencera Trax
 Name:		tse3
-Version:	0.2.7
+Version:	0.3.0
 Release:	1
 License:	GPL
 Group:		Applications/Sound
 Source0:	http://dl.sourceforge.net/tse3/%{name}-%{version}.tar.gz
-# Source0-md5:	6ccab942cc51a648af76653771479eed
+# Source0-md5:	fbf5ebe8b96fdc9886758a42d6b1c13a
 Patch0:		%{name}-alsa1_0.patch
 Patch1:		%{name}-types.patch
 URL:		http://tse3.sourceforge.net/
