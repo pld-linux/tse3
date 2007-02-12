@@ -5,7 +5,7 @@
 %bcond_without	alsa	# without ALSA support
 #
 Summary:	Trax Sequencer Engine
-Summary(pl):	Silnik sekwencera Trax
+Summary(pl.UTF-8):   Silnik sekwencera Trax
 Name:		tse3
 Version:	0.3.0
 Release:	1
@@ -32,17 +32,17 @@ Sequencer applications or multimedia presentation packages will
 incorporate the TSE3 libraries to provide a user with MIDI sequencing
 facilities.
 
-%description -l pl
-TSE3 jest potÍønym silnikiem sekwencera napisanym w C++ z
-wolnodostÍpnymi ºrÛd≥ami. Jest to "silnik sekwencera", poniewaø
-dostarcza w≥a∂ciwe elementy "napÍdzaj±ce" sekwencer, ale nie
-zawiera øadnego ≥adnego interfejsu. Aplikacje sekwencera lub
-prezentacji multimedialnych mog± korzystaÊ z bibliotek TSE3, aby
-dostarczyÊ uøytkownikowi moøliwo∂ci sekwencera MIDI.
+%description -l pl.UTF-8
+TSE3 jest potƒô≈ºnym silnikiem sekwencera napisanym w C++ z
+wolnodostƒôpnymi ≈∫r√≥d≈Çami. Jest to "silnik sekwencera", poniewa≈º
+dostarcza w≈Ça≈õciwe elementy "napƒôdzajƒÖce" sekwencer, ale nie
+zawiera ≈ºadnego ≈Çadnego interfejsu. Aplikacje sekwencera lub
+prezentacji multimedialnych mogƒÖ korzystaƒá z bibliotek TSE3, aby
+dostarczyƒá u≈ºytkownikowi mo≈ºliwo≈õci sekwencera MIDI.
 
 %package devel
 Summary:	Tse3 header files
-Summary(pl):	Pliki nag≥Ûwkowe tse3
+Summary(pl.UTF-8):   Pliki nag≈Ç√≥wkowe tse3
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 %{?with_alsa:Requires:	alsa-lib-devel >= 1.0}
@@ -52,8 +52,8 @@ Requires:	libstdc++-devel
 %description devel
 Tse3 header files.
 
-%description devel -l pl
-Pliki nag≥Ûwkowe tse3.
+%description devel -l pl.UTF-8
+Pliki nag≈Ç√≥wkowe tse3.
 
 %prep
 %setup -q
