@@ -5,7 +5,7 @@
 %bcond_without	alsa	# without ALSA support
 #
 Summary:	Trax Sequencer Engine
-Summary(pl.UTF-8):   Silnik sekwencera Trax
+Summary(pl.UTF-8):	Silnik sekwencera Trax
 Name:		tse3
 Version:	0.3.0
 Release:	1
@@ -42,7 +42,7 @@ dostarczyć użytkownikowi możliwości sekwencera MIDI.
 
 %package devel
 Summary:	Tse3 header files
-Summary(pl.UTF-8):   Pliki nagłówkowe tse3
+Summary(pl.UTF-8):	Pliki nagłówkowe tse3
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 %{?with_alsa:Requires:	alsa-lib-devel >= 1.0}
