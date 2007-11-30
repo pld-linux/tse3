@@ -15,6 +15,8 @@ Source0:	http://dl.sourceforge.net/tse3/%{name}-%{version}.tar.gz
 # Source0-md5:	3b7e35505160e2d761e5b43abb636f3c
 Patch0:		%{name}-alsa1_0.patch
 Patch1:		%{name}-types.patch
+Patch2:		%{name}-gcc4.patch
+Patch3:		%{name}-awe_voice.patch
 URL:		http://tse3.sourceforge.net/
 %{?with_alsa:BuildRequires:	alsa-lib-devel >= 1.0}
 %{?with_arts:BuildRequires:	arts-devel}
@@ -59,6 +61,8 @@ Pliki nagłówkowe tse3.
 %setup -q
 %patch0 -p1
 %patch1 -p1
+%patch2 -p1
+%patch3 -p1
 
 %build
 %{__libtoolize}
