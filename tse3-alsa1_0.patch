@@ -1,12 +1,12 @@
-diff -dur tse3-0.2.7.orig/configure.in tse3-0.2.7/configure.in
---- tse3-0.2.7.orig/configure.in	2003-03-06 17:15:53.000000000 +0100
-+++ tse3-0.2.7/configure.in	2004-08-28 21:02:17.000000000 +0200
-@@ -188,7 +188,7 @@
-     AC_CHECK_LIB(asound,snd_seq_create_simple_port,[
-       AC_TRY_RUN([
- #include <$alsa_header_prefix/asoundlib.h>
--int main() { return SND_LIB_MINOR != 5 && SND_LIB_MINOR != 9; }
-+int main() { return SND_LIB_MAJOR !=1 ; }
-         ] ,[
-         have_alsa="yes"
-         LIBASOUND="-lasound"
+diff -ur tse3-0.3.1.orig/src/tse3/plt/Alsa-0.9.cpp tse3-0.3.1/src/tse3/plt/Alsa-0.9.cpp
+--- tse3-0.3.1.orig/src/tse3/plt/Alsa-0.9.cpp	2005-07-25 13:22:56.000000000 +0200
++++ tse3-0.3.1/src/tse3/plt/Alsa-0.9.cpp	2007-11-30 20:51:03.773570339 +0100
+@@ -30,7 +30,7 @@
+ #include <errno.h>
+ #include <alloca.h>
+ #if HAVE_ALSA_ASOUNDLIB_H
+-#include <sys/asoundlib.h>
++#include <alsa/asoundlib.h>
+ #elif HAVE_SYS_ASOUNDLIB_H
+ #include <sys/asoundlib.h>
+ #endif
