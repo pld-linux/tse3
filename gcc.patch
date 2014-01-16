@@ -1,0 +1,61 @@
+--- tse3-0.3.1/src/examples/recording/recording.cpp.orig	2014-01-16 13:20:08.568872900 +0100
++++ tse3-0.3.1/src/examples/recording/recording.cpp	2014-01-16 13:20:24.802115418 +0100
+@@ -27,6 +27,7 @@
+      **************************************************************/
+ 
+ #include <iostream>
++#include <cstdlib>
+ 
+ // Used in step 1
+ #include "tse3/Metronome.h"
+--- tse3-0.3.1/src/tse3/MidiFile.cpp.orig	2014-01-16 13:17:43.056325416 +0100
++++ tse3-0.3.1/src/tse3/MidiFile.cpp	2014-01-16 13:18:04.669537187 +0100
+@@ -32,6 +32,7 @@
+ #include <string>
+ #include <queue>
+ #include <math.h>
++#include <cstring>
+ 
+ using namespace TSE3;
+ 
+--- tse3-0.3.1/src/tse3play/tse3play.cpp.orig	2014-01-16 13:21:27.928434479 +0100
++++ tse3-0.3.1/src/tse3play/tse3play.cpp	2014-01-16 13:21:47.931667070 +0100
+@@ -32,6 +32,7 @@
+ #include "tse3/Error.h"
+ #include "tse3/Metronome.h"
+ #include <fstream>
++#include <cstdlib>
+ 
+ #ifdef HAVE_CONFIG_H
+ #include "config.h"
+--- tse3-0.3.1/src/tse3/plt/OSS.cpp.orig	2014-01-16 13:05:43.902064966 +0100
++++ tse3-0.3.1/src/tse3/plt/OSS.cpp	2014-01-16 13:06:12.607546557 +0100
+@@ -25,6 +25,7 @@
+ #include <fcntl.h>
+ #include <stdarg.h>
+ #include <sys/types.h>
++#include <cstring>
+ 
+ // These #includes are linux specific and I need to do some autoconf
+ // magic to work out how to conditionally include them
+--- tse3-0.3.1/src/tse3/Serializable.h.orig	2014-01-16 13:09:57.615515841 +0100
++++ tse3-0.3.1/src/tse3/Serializable.h	2014-01-16 13:13:33.841015305 +0100
+@@ -253,7 +253,7 @@ namespace TSE3
+     inline std::ostream &operator<<(std::ostream &s,
+                                     const Serializable::indent &i)
+     {
+-        for (int n = 0; n < i.level; ++n) s << "    ";
++        for (int n = 0; n < i.level; ++n) s << std::string("    ");
+         return s;
+     }
+ }
+--- tse3-0.3.1/src/tse3/TSE2MDL.cpp.orig	2014-01-16 13:16:32.770039569 +0100
++++ tse3-0.3.1/src/tse3/TSE2MDL.cpp	2014-01-16 13:16:52.083279960 +0100
+@@ -38,6 +38,7 @@
+ #include "tse3/Progress.h"
+ 
+ #include <fstream>
++#include <cstring>
+ 
+ using namespace TSE3;
+ 
