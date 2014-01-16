@@ -8,15 +8,16 @@ Summary:	Trax Sequencer Engine
 Summary(pl.UTF-8):	Silnik sekwencera Trax
 Name:		tse3
 Version:	0.3.1
-Release:	1
+Release:	2
 License:	GPL
 Group:		Applications/Sound
-Source0:	http://dl.sourceforge.net/tse3/%{name}-%{version}.tar.gz
+Source0:	http://downloads.sourceforge.net/tse3/%{name}-%{version}.tar.gz
 # Source0-md5:	3b7e35505160e2d761e5b43abb636f3c
 Patch0:		%{name}-alsa1_0.patch
 Patch1:		%{name}-types.patch
 Patch2:		%{name}-gcc4.patch
 Patch3:		%{name}-awe_voice.patch
+Patch4:		gcc.patch
 URL:		http://tse3.sourceforge.net/
 %{?with_alsa:BuildRequires:	alsa-lib-devel >= 1.0}
 %{?with_arts:BuildRequires:	arts-devel}
@@ -63,6 +64,7 @@ Pliki nagłówkowe tse3.
 %patch1 -p1
 %patch2 -p1
 %patch3 -p1
+%patch4 -p1
 
 %build
 %{__libtoolize}
@@ -98,6 +100,7 @@ rm -rf $RPM_BUILD_ROOT
 %doc doc/{*.html,*.png,*.gif} AUTHORS README
 %attr(755,root,root) %{_bindir}/*
 %attr(755,root,root) %{_libdir}/lib*.so.*.*.*
+%attr(755,root,root) %ghost %{_libdir}/lib*.so.0
 %dir %{_datadir}/%{name}
 %{_datadir}/%{name}/songs
 %{_mandir}/man1/*
