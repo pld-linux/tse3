@@ -24,7 +24,7 @@ URL:		http://tse3.sourceforge.net/
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	libstdc++-devel
-BuildRequires:	libtool
+BuildRequires:	libtool >= 2:1.5
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -87,7 +87,9 @@ install -d $RPM_BUILD_ROOT%{_datadir}/%{name}/songs
 	DESTDIR=$RPM_BUILD_ROOT
 
 cp demos/*.tse3 $RPM_BUILD_ROOT%{_datadir}/%{name}/songs
-rm -f doc/Makefile*
+
+# packaged as %doc
+%{__rm} -r $RPM_BUILD_ROOT%{_prefix}/doc/%{name}-%{version}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -98,16 +100,16 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc doc/{*.html,*.png,*.gif} AUTHORS README
-%attr(755,root,root) %{_bindir}/*
-%attr(755,root,root) %{_libdir}/lib*.so.*.*.*
-%attr(755,root,root) %ghost %{_libdir}/lib*.so.0
+%attr(755,root,root) %{_bindir}/tse3play
+%attr(755,root,root) %{_libdir}/libtse3.so.*.*.*
+%attr(755,root,root) %ghost %{_libdir}/libtse3.so.0
 %dir %{_datadir}/%{name}
 %{_datadir}/%{name}/songs
-%{_mandir}/man1/*
+%{_mandir}/man1/tse3play.1*
 
 %files devel
 %defattr(644,root,root,755)
-%attr(755,root,root) %{_libdir}/lib*.so
-%{_libdir}/lib*.la
-%{_includedir}/*
-%{_mandir}/man3/*
+%attr(755,root,root) %{_libdir}/libtse3.so
+%{_libdir}/libtse3.la
+%{_includedir}/tse3
+%{_mandir}/man3/tse3.3*
