@@ -77,7 +77,7 @@ Pliki nagłówkowe tse3.
 	%{!?with_alsa:--without-alsa} \
 	%{!?with_oss:--without-oss} \
 	--without-win32
-%{__make}
+%{__make} -j1
 
 %install
 rm -rf $RPM_BUILD_ROOT
